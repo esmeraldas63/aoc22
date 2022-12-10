@@ -43,30 +43,19 @@ func main() {
 			for i := 1; i < ropeCount; i++ {
 				if knots[i].Y+1 < knots[i-1].Y && knots[i].X+1 < knots[i-1].X {
 					knots[i].X, knots[i].Y = knots[i-1].X-1, knots[i-1].Y-1
-				}
-
-				if knots[i].Y+1 < knots[i-1].Y && knots[i].X-1 > knots[i-1].X {
+				} else if knots[i].Y+1 < knots[i-1].Y && knots[i].X-1 > knots[i-1].X {
 					knots[i].X, knots[i].Y = knots[i-1].X+1, knots[i-1].Y-1
-				}
-
-				if knots[i].Y-1 > knots[i-1].Y && knots[i].X+1 < knots[i-1].X {
+				} else if knots[i].Y-1 > knots[i-1].Y && knots[i].X+1 < knots[i-1].X {
 					knots[i].X, knots[i].Y = knots[i-1].X-1, knots[i-1].Y+1
-				}
-
-				if knots[i].Y-1 > knots[i-1].Y && knots[i].X-1 > knots[i-1].X {
+				} else if knots[i].Y-1 > knots[i-1].Y && knots[i].X-1 > knots[i-1].X {
 					knots[i].X, knots[i].Y = knots[i-1].X+1, knots[i-1].Y+1
-				}
-
-				if knots[i].Y+1 < knots[i-1].Y {
+				} else if knots[i].Y+1 < knots[i-1].Y {
 					knots[i].X, knots[i].Y = knots[i-1].X, knots[i-1].Y-1
-				}
-				if knots[i].Y-1 > knots[i-1].Y {
+				} else if knots[i].Y-1 > knots[i-1].Y {
 					knots[i].X, knots[i].Y = knots[i-1].X, knots[i-1].Y+1
-				}
-				if knots[i].X+1 < knots[i-1].X {
+				} else if knots[i].X+1 < knots[i-1].X {
 					knots[i].X, knots[i].Y = knots[i-1].X-1, knots[i-1].Y
-				}
-				if knots[i].X-1 > knots[i-1].X {
+				} else if knots[i].X-1 > knots[i-1].X {
 					knots[i].X, knots[i].Y = knots[i-1].X+1, knots[i-1].Y
 				}
 			}
@@ -77,16 +66,16 @@ func main() {
 
 			if leftTop.Y < tail.Y {
 				leftTop.Y = tail.Y
-			}
-			if leftTop.X > tail.X {
-				leftTop.X = tail.X
-			}
-			if rightBottom.Y > tail.Y {
+			} else if rightBottom.Y > tail.Y {
 				rightBottom.Y = tail.Y
 			}
-			if rightBottom.X < tail.X {
+
+			if leftTop.X > tail.X {
+				leftTop.X = tail.X
+			} else if rightBottom.X < tail.X {
 				rightBottom.X = tail.X
 			}
+
 		}
 	}
 
