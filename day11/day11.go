@@ -69,17 +69,14 @@ func main() {
 
 		monkeyProperties := strings.Split(monkeyStr, "\n")
 		for _, item := range strings.Split(monkeyProperties[1][18:], ", ") {
-			itemInt, _ := strconv.Atoi(item)
-			monkey.Items = append(monkey.Items, big.NewInt(int64(itemInt)))
+			itemInt, _ := new(big.Int).SetString(item, 0)
+			monkey.Items = append(monkey.Items, itemInt)
 		}
 
 		monkey.Operation = monkeyProperties[2][19:]
-		divisor, _ := strconv.Atoi(monkeyProperties[3][21:])
-		monkey.TestDivisor = big.NewInt(int64(divisor))
-		ifTrue, _ := strconv.Atoi(monkeyProperties[4][29:])
-		monkey.IfTrue = ifTrue
-		ifFalse, _ := strconv.Atoi(monkeyProperties[5][30:])
-		monkey.IfFalse = ifFalse
+		monkey.TestDivisor, _ = new(big.Int).SetString(monkeyProperties[3][21:], 0)
+		monkey.IfTrue, _ = strconv.Atoi(monkeyProperties[4][29:])
+		monkey.IfFalse, _ = strconv.Atoi(monkeyProperties[5][30:])
 	}
 
 	var rounds int
