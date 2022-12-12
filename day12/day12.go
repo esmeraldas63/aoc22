@@ -54,9 +54,6 @@ func main() {
 	}
 	stepCounts := make([]int, len(startingPoints))
 	for i, startingPoint := range startingPoints {
-
-		//fmt.Println(end.Visited)
-		//fmt.Println(startingPoint, end.Visited)
 		neighbours := []Node{*startingPoint}
 		stepCount := 0
 
